@@ -11,15 +11,6 @@ export const styles = StyleSheet.create({
         color:'#022150',
         marginTop:8,
         textAlign:'center'
-    },
-    userImageContainer:{
-        borderWidth:1,
-        borderColor:'#F35BAC',
-        borderRadius:50,
-        padding:3
-    },
-    image:{
-        width:65,
-        height:65
     }
+  
 })

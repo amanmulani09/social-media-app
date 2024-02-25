@@ -8,3 +8,7 @@ export type storiesType = {
     firstName:string,
     profileImage:ImageSourcePropType
 }
+export type UserProfileProps = {
+  profileImage:ImageSourcePropType,
+  imageDimensions:number
+}
