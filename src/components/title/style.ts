@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { getFontFamily } from "../../../assets/fonts/helper";
+import { getFontFamily } from "../../assets/fonts/helper";
 
 console.log(getFontFamily('Inter',600))
 

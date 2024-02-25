@@ -1,10 +1,11 @@
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { getFontFamily } from './assets/fonts/helper'
 import Title from './src/components/title/Title'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { globalStyles } from './src/styles/globalStyles'
+import { stories } from './src/constants'
+import UserStory from './src/components/userstory/UserStory'
 const App = () => {
   return (
     <SafeAreaView>
@@ -17,7 +18,18 @@ const App = () => {
           </View>
         </TouchableOpacity>
       </View>
+      <View style={globalStyles.userStoryContainer}>
+        <FlatList
+        data={stories}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={({item})=>(
+          <UserStory {...item} key={Math.random()* 1000 + '_'} />
+        )}
+        />
+      </View>
     </SafeAreaView>
+
   )
 }
 

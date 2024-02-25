@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { getFontFamily } from "../../assets/fonts/helper";
+import { getFontFamily } from "../assets/fonts/helper";
 
 export const globalStyles = StyleSheet.create({
     titleContainer:{
@@ -32,5 +32,9 @@ export const globalStyles = StyleSheet.create({
         fontSize:6,
         fontFamily:getFontFamily('Inter','600'),
         textAlign:'center'
+      },
+      userStoryContainer:{
+        marginTop:20,
+        marginHorizontal:28
       }
 })
