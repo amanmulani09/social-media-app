@@ -6,7 +6,7 @@ import UserProfile from '../userprofile/UserProfile'
 const UserStory = ({firstName,profileImage,id}:storiesType) => {
   return (
     <View style={styles.storyContainer}>
-      <UserProfile profileImage={profileImage} imageDimensions={65} key={id}/>
+      <UserProfile profileImage={profileImage} imageDimensions={60} key={id}/>
       <Text style={styles.firstName}>{firstName}</Text>
     </View>
   )
