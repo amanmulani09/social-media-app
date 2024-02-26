@@ -23,18 +23,18 @@ const UserPost = (props:UserPostsProps) => {
         <View>
             <Image source={banerImage} style={styles.postImage} />
         </View>
-        <View style={{marginLeft:10,flexDirection:'row'}}>
-            <View style={{flexDirection:'row'}}>
+        <View style={styles.userPostStats}>
+            <View style={styles.userPostStatsBtn}>
                 <FontAwesomeIcon icon={faHeart} color='#79869F' />
-                <Text style={{marginLeft:3,color:'#79869F'}}>{likes}</Text>
+                <Text style={styles.userPostsStatsText}>{likes}</Text>
             </View>
-            <View style={{flexDirection:'row',marginLeft:27}}>
+            <View style={styles.userPostsRightButtons}>
                 <FontAwesomeIcon icon={faMessage} color='#79869F' />
-                <Text style={{marginLeft:3,color:'#79869F'}}>{likes}</Text>
+                <Text style={styles.userPostsStatsText}>{likes}</Text>
             </View>
-            <View style={{flexDirection:'row',marginLeft:27}}>
+            <View style={styles.userPostsRightButtons}>
                 <FontAwesomeIcon icon={faBookmark} color='#79869F' />
-                <Text style={{marginLeft:3,color:'#79869F'}}>{likes}</Text>
+                <Text style={styles.userPostsStatsText}>{likes}</Text>
             </View>
         </View>
     </View>

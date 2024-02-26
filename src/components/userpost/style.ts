@@ -35,5 +35,15 @@ export const styles = StyleSheet.create({
         borderBottomWidth:1,
         paddingBottom:20,
         borderBottomColor:'#EFF2F6'
+    },
+    userPostStats:{
+        marginLeft:10,
+        flexDirection:'row'
+    },
+    userPostStatsBtn:{flexDirection:'row'},
+    userPostsStatsText:{marginLeft:3,color:'#79869F'},
+    userPostsRightButtons:{
+        flexDirection:'row',marginLeft:27
     }
+    
 })

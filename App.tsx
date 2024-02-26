@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { globalStyles } from './src/styles/globalStyles'
 import { stories, userPosts } from './src/constants'
 import UserStory from './src/components/userstory/UserStory'
-import { storiesType } from './src/types'
+import { UserPostsProps, storiesType } from './src/types'
 import UserPost from './src/components/userpost/UserPost'
 const App = () => {
   const userStoriesPageSize = 4;
@@ -14,12 +14,12 @@ const App = () => {
   const [userStoriesRenderedData,setUserStoriesRenderedData] = useState<storiesType[]>([]);
   const [isLoadingUserStories,setIsLoadingUserStories] = useState(false);
 
-  const userPostsPageSize = 4;
+  const userPostsPageSize = 3;
   const [userPostsCurrentPage,setuserPostsCurrentPage] = useState(1);
-  const [userPostsRenderedData,setuserPostsRenderedData] = useState<storiesType[]>([]);
+  const [userPostsRenderedData,setuserPostsRenderedData] = useState<UserPostsProps[] | storiesType[]>([]);
   const [isLoadinguserPosts,setIsLoadinguserPosts] = useState(false);
 
-  const pagination = (databse:storiesType[],currentPage:number,pageSize:number)=>{
+  const pagination = (databse:storiesType[]|UserPostsProps[],currentPage:number,pageSize:number)=>{
     const startIndex = (currentPage-1) * pageSize;
     const endIndex = startIndex + pageSize;
 
@@ -33,7 +33,12 @@ const App = () => {
       setIsLoadingUserStories(true);
       const initialData = pagination(stories,1,userStoriesPageSize);
       setUserStoriesRenderedData(initialData)
-      setIsLoadingUserStories(false)
+      setIsLoadingUserStories(false);
+
+      setIsLoadinguserPosts(true);
+      const initialDataPosts = pagination(userPosts,1,userPostsPageSize);
+      setuserPostsRenderedData(initialDataPosts);
+      setIsLoadinguserPosts(false)
   },[]);
 
   return (
@@ -74,12 +79,22 @@ const App = () => {
       </View>
           </>
         }
-        data={userPosts}
+        data={userPostsRenderedData}
         style={globalStyles.userPostContainer}
         showsVerticalScrollIndicator={false}
-        renderItem={({item})=>(
+        onEndReachedThreshold={0.5}
+        onEndReached={()=>{
+          if(isLoadinguserPosts) return;
+          const contentToAppend = pagination(userPosts,userPostsCurrentPage+1,userPostsPageSize);
+          if(contentToAppend.length > 0){
+            setuserPostsCurrentPage(userStoriesCurrentPage + 1);
+            setuserPostsRenderedData(prev => [...prev,...contentToAppend])
+          }
+          setIsLoadinguserPosts(false)        }}
+        renderItem={({item}:{item:UserPostsProps})=>(
           <UserPost {...item} />
         )}
+
         />
       </View>
     </SafeAreaView>
