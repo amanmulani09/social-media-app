@@ -3,7 +3,7 @@ import { getFontFamily } from "../assets/fonts/helper";
 
 export const globalStyles = StyleSheet.create({
     titleContainer:{
-        marginLeft:27,
+        // marginLeft:27,
         marginRight:17,
         marginTop:30,
         flexDirection:'row',
@@ -35,7 +35,7 @@ export const globalStyles = StyleSheet.create({
       },
       userStoryContainer:{
         marginTop:20,
-        marginHorizontal:28
+        // marginHorizontal:28
       },
       userPostContainer:{
         marginHorizontal:28

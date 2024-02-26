@@ -38,7 +38,12 @@ const App = () => {
 
   return (
     <SafeAreaView>
-      <View style={globalStyles.titleContainer}>
+    
+      <View>
+        <FlatList
+        ListHeaderComponent={
+          <>
+            <View style={globalStyles.titleContainer}>
         <Title title={"Let's Explore"} />
         <TouchableOpacity style={globalStyles.envolopContainer}>
           <FontAwesomeIcon icon={faEnvelope} color={'#898DAE'} size={20}/>
@@ -51,7 +56,6 @@ const App = () => {
         <FlatList
         onEndReachedThreshold={0.5}
         onEndReached={()=>{
-          // console.log('reached the end')
           if(isLoadingUserStories) return;
           const contentToAppend = pagination(stories,userStoriesCurrentPage+1,userStoriesPageSize);
           if(contentToAppend.length > 0){
@@ -68,8 +72,8 @@ const App = () => {
         )}
         />
       </View>
-      <View>
-        <FlatList
+          </>
+        }
         data={userPosts}
         style={globalStyles.userPostContainer}
         showsVerticalScrollIndicator={false}
