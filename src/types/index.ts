@@ -1,6 +1,6 @@
 import { ImageSourcePropType } from "react-native"
 export type titleProps = {
-    title:string
+    title:string,
   }
 
 export type storiesType = {

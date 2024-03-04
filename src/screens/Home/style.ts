@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
-import { getFontFamily } from "../assets/fonts/helper";
+import { getFontFamily } from "../../assets/fonts/helper";
 
-export const globalStyles = StyleSheet.create({
+export const styles = StyleSheet.create({
     titleContainer:{
         // marginLeft:27,
         marginRight:17,

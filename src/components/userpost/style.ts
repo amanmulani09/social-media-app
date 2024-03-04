@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { getFontFamily } from "../../assets/fonts/helper";
+import { horizontalScale, scaleFontSize, verticleScale } from "../../utils/scaling";
 
 export const styles = StyleSheet.create({
     userContainer:{
@@ -7,7 +8,7 @@ export const styles = StyleSheet.create({
     },
     postTypographyContainer:{
         justifyContent:'center',
-        marginLeft:10
+        marginLeft:horizontalScale(10)
     },
     headerContainer:{
         flexDirection:'row',
@@ -17,18 +18,18 @@ export const styles = StyleSheet.create({
     username:{
         color:'#000',
         fontFamily:getFontFamily('Inter','600'),
-        fontSize:16
+        fontSize:scaleFontSize(16)
     },
     location:{
         color:'#79868F',
         fontFamily:getFontFamily('Inter','400'),
-        fontSize:12,
-        marginTop:5,
-        marginLeft:-4
+        fontSize:scaleFontSize(12),
+        marginTop:verticleScale( 5),
+        marginLeft:horizontalScale(-4)
     },
     postImage:{
         alignItems:'center',
-        marginVertical:20
+        marginVertical:verticleScale(20)
     },
     postContainer:{
         marginTop:35,
