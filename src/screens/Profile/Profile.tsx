@@ -12,6 +12,7 @@ interface ProfileScreenProps {
   navigation: HomeScreenNavigationProp;
   route: HomeScreenRouteProp;
 }
+
 const Profile = ({navigation}:ProfileScreenProps) => {
   return (
     <SafeAreaView style={[globalStyles.backgroundWhile,globalStyles.flex]}>
